@@ -1,0 +1,1 @@
+# spice_curry_mania
