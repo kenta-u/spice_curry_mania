@@ -48,3 +48,7 @@
 ## 画面遷移図
 ---
 https://www.figma.com/file/LOCqf2WrlSyNYCUe09x0gs/spice-curry-mania?node-id=0%3A1
+
+## ER図
+---
+[![Image from Gyazo](https://i.gyazo.com/d5699bd95660e4f5abfc0de22962aa28.png)](https://gyazo.com/d5699bd95660e4f5abfc0de22962aa28)
