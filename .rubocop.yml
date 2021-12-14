@@ -5,25 +5,59 @@ require:
 
 AllCops:
   NewCops: enable
-  # 除外するディレクトリ（自動生成されたファイル）
-  # デフォルト設定にある"vendor/**/*"が無効化されないように記述
   Exclude:
-    - bin/*
-    - db/schema.rb
-    - db/migrate/*
-    - vendor/**/*
-
-# "Missing top-level class documentation comment."を無効
-Style/Documentation:
-  Enabled: false
-
-# "Prefer single-quoted strings when you don't need string interpolation or special symbols."を無効
-Style/StringLiterals:
-  Enabled: false
-
-# "Line is too long"を無効
-Metrics/LineLength:
-  Enabled: false
+    - "vendor/**/*"
+    - "db/**/*"
+    - "bin/**/*"
+    - "lib/**/*"
+    - "spec/**/*"
+    - "config/**/*"
+    - "app/validators/attachment_validator.rb"
+    - "node_modules/**/*"
+    - "Gemfile"
+  DisplayCopNames: true
 
 Rails:
   Enabled: true
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/ClassLength:
+  CountComments: false
+  Max: 300
+
+Metrics/CyclomaticComplexity:
+  Max: 30
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 30
+
+Naming/AccessorMethodName:
+  Exclude:
+    - "app/controllers/**/*"
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/WhileUntilModifier:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
