@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   
   namespace :reicpes do
-    resources :serches, only: %i[index]
+    resources :searches, only: %i[index]
   end
 
   get '/login', to: 'sessions#new'
