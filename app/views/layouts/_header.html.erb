@@ -1,0 +1,29 @@
+<header class="top-page-header">
+  <div class="header-top-content">
+    <%= link_to root_path, class: "header-title" do %>
+      <div>spice curry mania</div>
+    <% end %>
+
+    <div class="nav">
+      <ul class="lists-right">
+        <li>
+          <%= search_form_for @search, url: recipes_path, class: 'search_container' do |f| %>
+          <%= f.text_field :name_cont, placeholder: "レシピ名" %>
+          <%= f.submit class: "fas fa-search" %>
+          <% end %>
+        </li>
+        <% if logged_in? %>
+          <div class="login">
+            <li><%= link_to '投稿したレシピ', user_path(current_user), class: "login-btn" %></li>
+            <li><%= link_to '新規レシピ投稿', new_recipe_path, class: "login-btn" %></li>
+            <li><%= link_to 'お気に入り', favorites_users_path, class: "login-btn" %></li>
+            <li><%= link_to 'プロフィール編集', edit_user_path(current_user), class: "login-btn" %></li>
+            <li><%= link_to 'ログアウト', logout_path, method: :delete, class: "login-btn" %></li>
+          </div>
+        <% else %>
+          <li class="login"><%= link_to 'ログイン', login_path, class: "login-btn" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</header>
