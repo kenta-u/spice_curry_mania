@@ -1,0 +1,8 @@
+<div class="container">
+  <% if @user.image? %>
+    <%= image_tag @user.image.url, size: '250x250' %>
+  <% else %>
+    <%= image_tag 'user_icon.png', size: '250x250' %>
+  <% end %>
+  <p><%= @user.name %>さんのレシピ一覧</p>
+</div>
