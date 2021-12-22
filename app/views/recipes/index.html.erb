@@ -1,2 +1,10 @@
 <div class="top-page">
 </div>
+<div class="container">
+  <div class="recipes">
+    <% @recipes.each do |recipe| %>
+      <%= image_tag recipe.image.url, size: '250x250' %>
+      <%= recipe.name %>
+    <% end %>
+  </div>
+</div>
