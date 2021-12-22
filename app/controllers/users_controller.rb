@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @recipes = @user.recipes.order('updated_at DESC')
   end
 
   private
