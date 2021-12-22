@@ -1,0 +1,9 @@
+<div class="nested-fields">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :quantity %>
+  <%= f.text_field :quantity %>
+  <%= f.label :classification %>
+  <%= f.select :classification, Spice.classifications.keys %>
+  <%= link_to_remove_association "削除", f %>
+</div>

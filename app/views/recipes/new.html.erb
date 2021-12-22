@@ -1,3 +1,37 @@
 <div class="container">
-  <%= form_with
+  <%= form_with(model: @recipe, local: true) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :survings %>
+    <%= f.number_field :survings, min: 1, max: 20 %>
+    <%= f.label :category %>
+    <%= f.select :category, Recipe.categories.keys %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <div class="ingredient">
+      <%= f.fields_for :ingredients do |form| %>
+        <%= render "ingredient_fields", f: form %>
+      <% end %>
+      <div class="add-links">
+        <%= link_to_add_association "材料を追加", f, :ingredients %>
+      </div>
+    </div>
+    <div class="spice">
+      <%= f.fields_for :spices do |form| %>
+        <%= render "spice_fields", f: form %>
+      <% end %>
+      <div class="add-links">
+        <%= link_to_add_association "スパイスを追加", f, :spices %>
+      </div>
+    </div>
+    <div class="step">
+      <%= f.fields_for :steps do |form| %>
+        <%= render "step_fields", f: form %>
+      <% end %>
+      <div class="add-links">
+        <%= link_to_add_association "手順を追加", f, :steps %>
+      </div>
+    </div>
+    <%= f.submit "レシピを投稿" %>
+  <% end %>
 </div>

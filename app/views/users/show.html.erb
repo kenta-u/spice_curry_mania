@@ -5,4 +5,10 @@
     <%= image_tag 'user_icon.png', size: '250x250' %>
   <% end %>
   <p><%= @user.name %>さんのレシピ一覧</p>
+  <div class="recipes">
+    <% @recipes.each do |recipe| %>
+      <%= image_tag recipe.image.url, size: '250x250' %>
+      <p><%= recipe.name %></p>
+    <% end %>
+  </div>
 </div>
