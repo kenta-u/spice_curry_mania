@@ -7,8 +7,12 @@
   <p><%= @user.name %>さんのレシピ一覧</p>
   <div class="recipes">
     <% @recipes.each do |recipe| %>
-      <%= image_tag recipe.image.url, size: '250x250' %>
-      <p><%= recipe.name %></p>
+      <%= link_to(recipe_path(recipe)) do %>
+        <div class="recipe">
+          <%= image_tag recipe.image.url, size: '250x250' %>
+          <p><%= recipe.name %></p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
