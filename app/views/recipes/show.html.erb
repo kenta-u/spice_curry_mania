@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="racipe_top">
+    <%= image_tag @recipe.image.url, size: '350x350' %>
+    <%= @recipe.name %>
+    <p>カレーの種類: <%= @recipe.category %></p>
+  </div>
+  <div class="ingredients">
+  <p>材料<%= @recipe.survings %>人前</p>
+    <% @recipe.ingredients.pluck('name', 'quantity').each do |ingredient, quantity| %>
+      <%= ingredient %><%= quantity %>
+    <% end %>
+  </div>
+  <div class="spices">
+  <p>スパイス</p>
+    <% @recipe.spices.pluck('name', 'quantity').each do |spice, quantity| %>
+      <%= spice %><%= quantity %>
+    <% end %>
+  </div>
+  <div class="steps">
+  <p>作り方</p>
+    <% @recipe.steps.pluck('direction').each do |direction| %>
+      <%= direction %>
+      <br>
+    <% end %>
+  </div>
+</div>
