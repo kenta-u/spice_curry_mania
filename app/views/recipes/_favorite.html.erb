@@ -1,0 +1,3 @@
+<%= link_to favorites_path(recipe_id: recipe.id), id: "js-favorite-button-for-recipe-#{recipe.id}", method: :post do %>
+  <%= icon 'far', 'star' %>
+<% end %>

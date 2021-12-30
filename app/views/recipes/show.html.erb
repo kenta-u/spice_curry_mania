@@ -2,6 +2,11 @@
   <div class="racipe_top">
     <%= image_tag @recipe.image.url, size: '350x350' %>
     <%= @recipe.name %>
+    <% if current_user.own?(@recipe) %>
+      <%= render 'crud_menus', recipe: @recipe %>
+    <% else %>
+      <%= render 'favorite_button', recipe: @recipe %>
+    <% end %>
     <p>カレーの種類: <%= @recipe.category %></p>
   </div>
   <div class="ingredients">

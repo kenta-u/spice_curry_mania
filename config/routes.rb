@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create edit update destroy show] do
     get :favorites, on: :collection
   end
-  resources :recipes, only: %i[new create index edit update destroy show] do
-    resources :favorites, only: %i[create destroy]
-  end
+  resources :recipes, only: %i[new create index edit update destroy show] 
+  resources :favorites, only: %i[create destroy]
   
   namespace :reicpes do
     resources :searches, only: %i[index]

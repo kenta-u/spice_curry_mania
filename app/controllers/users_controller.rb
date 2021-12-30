@@ -32,6 +32,10 @@ class UsersController < ApplicationController
     @recipes = @user.recipes.order('updated_at DESC')
   end
 
+  def favorites
+    @favorite_recipes = current_user.favorite_recipes.includes(:user).order(created_at: :desc)
+  end
+
   private
 
   def user_params
