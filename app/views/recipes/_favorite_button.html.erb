@@ -1,0 +1,5 @@
+<% if current_user.favorite?(recipe) %>
+  <%= render 'unfavorite', { recipe: recipe } %>
+<% else %>
+  <%= render 'favorite', { recipe: recipe } %>
+<% end %>
