@@ -1,3 +1,6 @@
-<%= link_to favorite_path(current_user.favorites.find_by(recipe_id: recipe.id)), id: "js-favorite-button-for-recipe-#{recipe.id}", method: :delete do %>
+<%= link_to favorite_path(current_user.favorites.find_by(recipe_id: recipe.id)),
+            id: "js-favorite-button-for-recipe-#{recipe.id}",
+            method: :delete,
+            remote: true do %>
   <%= icon 'fas', 'star' %>
 <% end %>
