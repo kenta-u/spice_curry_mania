@@ -62,3 +62,5 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'cocoon'
 gem 'font-awesome-sass'
+gem 'rails_admin', ['>= 3.0.0.beta2', '< 4']
+gem 'dotenv-rails'
