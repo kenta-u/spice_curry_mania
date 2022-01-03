@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @search = Recipe.ransack(params[:q])
-    @search_products = @search.result
+    @search_recipes = @search.result
   end
 end

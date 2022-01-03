@@ -2,13 +2,10 @@
 </div>
 <div class="container">
   <div class="recipes">
-    <% @recipes.each do |recipe| %>
-      <%= link_to(recipe_path(recipe)) do %>
-        <div class="recipe">
-          <%= image_tag recipe.image.url, size: '250x250' %>
-          <%= recipe.name %>
-        </div>
-      <% end %>
-    <% end %>
+  <% if @search_recipes %>
+    <%= render partial: 'recipes/recipe', collection: @search_recipes %>
+  <% else %>
+    <%= render partial: 'recipes/recipe', collection: @recipes %>
+  <% end %>
   </div>
 </div>

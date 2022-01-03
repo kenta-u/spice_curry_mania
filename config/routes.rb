@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   end
   resources :recipes, only: %i[new create index edit update destroy show] 
   resources :favorites, only: %i[create destroy]
-  
-  namespace :reicpes do
-    resources :searches, only: %i[index]
-  end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
