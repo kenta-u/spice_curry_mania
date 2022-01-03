@@ -6,6 +6,14 @@
 
     <div class="nav">
       <ul class="lists-right">
+        <li>
+          <%= search_form_for @search, url: recipes_path, class: 'search_container' do |f| %>
+          <%= f.text_field :name_cont, placeholder: "レシピ名" %>
+            <%= button_tag :type => "submit", style: 'border-style: none;' do %>
+              <i class="fa fa-search"></i>
+            <% end %>          
+          <% end %>
+        </li>
         <% if logged_in? %>
           <div class="login">
             <li><%= link_to '投稿したレシピ', user_path(current_user), class: "login-btn" %></li>
