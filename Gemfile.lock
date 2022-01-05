@@ -169,6 +169,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-linux)
+      racc (~> 1.4)
     oauth (0.5.8)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -320,6 +322,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   better_errors
@@ -351,7 +354,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 2.6.9p207
+   ruby 2.6.4p104
 
 BUNDLED WITH
    2.2.27
