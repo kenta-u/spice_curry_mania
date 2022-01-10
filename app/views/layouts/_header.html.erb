@@ -1,23 +1,35 @@
-<header class="top-page-header">
-  <div class="header-top-content">
-    <%= link_to root_path, class: "header-title" do %>
-      <div>spice curry mania</div>
-    <% end %>
-
-    <div class="nav">
-      <ul class="lists-right">
-        <% if logged_in? %>
-          <div class="login">
-            <li><%= link_to '投稿したレシピ', user_path(current_user), class: "login-btn" %></li>
-            <li><%= link_to '新規レシピ投稿', new_recipe_path, class: "login-btn" %></li>
-            <li><%= link_to 'お気に入り', favorites_users_path, class: "login-btn" %></li>
-            <li><%= link_to 'プロフィール編集', edit_user_path(current_user), class: "login-btn" %></li>
-            <li><%= link_to 'ログアウト', logout_path, method: :delete, class: "login-btn" %></li>
-          </div>
-        <% else %>
-          <li class="login"><%= link_to 'ログイン', login_path, class: "login-btn" %></li>
-        <% end %>
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <div class="container-fluid">
+    <a class="navbar-brand header-title" href="/">spice curry mania</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <% if current_user.image? %>
+            <%= image_tag current_user.image.url, size: '40x40', class: 'rounded-circle mr15' %>
+          <% else %>
+            <%= image_tag 'user_icon.png', size: '40x40', class: 'rounded-circle mr15' %>
+          <% end %>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <li><%= link_to '投稿したレシピ', user_path(current_user), class: "dropdown-item" %></li>
+            <li><%= link_to '新規レシピ投稿', new_recipe_path, class: "dropdown-item" %></li>
+            <li><%= link_to 'お気に入り', favorites_users_path, class: "dropdown-item" %></li>
+            <li><%= link_to 'プロフィール編集', edit_user_path(current_user), class: "dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to 'ログアウト', logout_path, method: :delete, class: "dropdown-item" %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'ログイン', login_path, class: 'nav-link' %>
+        </li>
+      <% end %>
       </ul>
     </div>
   </div>
-</header>
+</nav>
