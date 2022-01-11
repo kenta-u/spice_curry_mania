@@ -66,3 +66,4 @@ gem 'rails_admin', ['>= 3.0.0.beta2', '< 4']
 gem 'dotenv-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'rails-i18n'
