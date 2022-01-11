@@ -1,11 +1,16 @@
-<div class="top-page">
-</div>
-<div class="container">
-  <div class="recipes">
-  <% if @search_recipes %>
-    <%= render partial: 'recipes/recipe', collection: @search_recipes %>
-  <% else %>
-    <%= render partial: 'recipes/recipe', collection: @recipes %>
-  <% end %>
+<article>
+  <div>
+    <%= image_tag 'top_cover.jpg', class: 'w-100 h-auto' %>
+  </div>
+</article>
+<div class="container py-5">
+  <div class="col-12">
+    <div class="row">
+      <% if @search_recipes %>
+        <%= render partial: 'recipes/recipe', collection: @search_recipes %>
+      <% else %>
+        <%= render partial: 'recipes/recipe', collection: @recipes %>
+      <% end %>
+    </div>
   </div>
 </div>

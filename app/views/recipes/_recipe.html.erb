@@ -1,6 +1,20 @@
-<%= link_to(recipe_path(recipe)) do %>
-  <div class="recipe">
-    <%= image_tag recipe.image.url, size: '250x250' %>
-    <%= recipe.name %>
-  </div>
-<% end %>
+<div class="col-sm-12 col-lg-4 mb-3">
+  <%= link_to(recipe_path(recipe), class: 'text-decoration-none link') do %>
+    <div class="card">
+      <%= image_tag recipe.image.url, class: 'card-img-top', size: '250x250' %>
+      <div class="card-body">
+        <h4 class="card-name">
+          <%= recipe.name %>
+        </h4>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+          <%= link_to user_path(recipe.user), class: 'text-decoration-none link' do %>
+            <%= icon 'far', 'user' %>
+            <%= recipe.user.name %>さんのレシピ
+          <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>
