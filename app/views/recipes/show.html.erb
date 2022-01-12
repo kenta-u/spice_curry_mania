@@ -1,31 +1,36 @@
 <div class="container">
-  <div class="racipe_top">
-    <%= image_tag @recipe.image.url, size: '350x350' %>
-    <%= @recipe.name %>
-    <% if current_user.own?(@recipe) %>
-      <%= render 'crud_menus', recipe: @recipe %>
-    <% else %>
-      <%= render 'favorite_button', recipe: @recipe %>
-    <% end %>
-    <p>カレーの種類: <%= @recipe.category %></p>
-  </div>
-  <div class="ingredients">
-  <p>材料<%= @recipe.survings %>人前</p>
-    <% @recipe.ingredients.pluck('name', 'quantity').each do |ingredient, quantity| %>
-      <%= ingredient %><%= quantity %>
-    <% end %>
-  </div>
-  <div class="spices">
-  <p>スパイス</p>
+  <div class="row">
+    <div class="col-md-6">
+      <h2><%= @recipe.name %></h2>
+      <%= image_tag @recipe.image.url, class: 'img-fluid' %>
+      <br>
+      <% if current_user.own?(@recipe) %>
+        <%= render 'crud_menus', recipe: @recipe %>
+      <% else %>
+        <%= render 'favorite_button', recipe: @recipe %>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <h3>材料<%= @recipe.survings %>人分</h3>
+      <% @recipe.ingredients.pluck('name', 'quantity').each do |ingredient, quantity| %>
+        •<%= ingredient %>  <%= quantity %><br>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+    <h3>使用するスパイス</h3>
     <% @recipe.spices.pluck('name', 'quantity').each do |spice, quantity| %>
-      <%= spice %><%= quantity %>
+      •<%= spice %>  <%= quantity %><br>
     <% end %>
   </div>
-  <div class="steps">
-  <p>作り方</p>
-    <% @recipe.steps.pluck('direction').each do |direction| %>
-      <%= direction %>
+</div>
+<div class="container container-m">
+  <h3>作り方</h3>
+    <% @recipe.steps.each do |step| %>
+      •<%= step.direction %>
+      <% if step.image? %>
+        <br>
+        <%= image_tag step.image.url, class: "col-md-4" %>
+      <% end %>
       <br>
     <% end %>
-  </div>
 </div>

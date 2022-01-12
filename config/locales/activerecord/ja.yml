@@ -12,7 +12,7 @@ ja:
         password_confirmation: 'パスワード確認'
       recipe:
         name: 'レシピ名'
-        survings: '何人前'
+        survings: '何人分'
         category: '種類'
         image: 'レシピ画像'
       step:
