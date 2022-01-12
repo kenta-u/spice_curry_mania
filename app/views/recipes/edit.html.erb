@@ -1,37 +1,49 @@
 <div class="container">
-  <%= form_with(model: @recipe, local: true) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :survings %>
-    <%= f.number_field :survings, min: 1, max: 20 %>
-    <%= f.label :category %>
-    <%= f.select :category, Recipe.categories.keys %>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-    <div class="ingredient">
-      <%= f.fields_for :ingredients do |form| %>
-        <%= render "ingredient_fields", f: form %>
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h3>レシピ編集</h3>
+      <%= form_with(model: @recipe, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <%= f.label :survings %>
+        <%= f.number_field :survings, min: 1, max: 20 %>
+        <%= f.label :category %>
+        <%= f.select :category, Recipe.categories_i18n.invert %>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+        <div class="ingredient">
+          <h4>材料</h4>
+          <%= f.fields_for :ingredients do |form| %>
+            <%= render "ingredient_fields", f: form %>
+          <% end %>
+          <div class="add-links">
+            <%= link_to_add_association "材料を追加", f, :ingredients %>
+          </div>
+        </div>
+        <div class="spice">
+          <h4>スパイス</h4>
+          <%= f.fields_for :spices do |form| %>
+            <%= render "spice_fields", f: form %>
+          <% end %>
+          <div class="add-links">
+            <%= link_to_add_association "スパイスを追加", f, :spices %>
+          </div>
+        </div>
+        <div class="step">
+          <h4>作り方</h4>
+          <%= f.fields_for :steps do |form| %>
+            <%= render "step_fields", f: form %>
+          <% end %>
+          <div class="add-links">
+            <%= link_to_add_association "手順を追加", f, :steps %>
+          </div>
+        </div>
+        <div class="actions text-center">
+          <%= f.submit "レシピを編集", class: "btn btn-secondary" %>
+        </div>
       <% end %>
-      <div class="add-links">
-        <%= link_to_add_association "材料を追加", f, :ingredients %>
-      </div>
     </div>
-    <div class="spice">
-      <%= f.fields_for :spices do |form| %>
-        <%= render "spice_fields", f: form %>
-      <% end %>
-      <div class="add-links">
-        <%= link_to_add_association "スパイスを追加", f, :spices %>
-      </div>
-    </div>
-    <div class="step">
-      <%= f.fields_for :steps do |form| %>
-        <%= render "step_fields", f: form %>
-      <% end %>
-      <div class="add-links">
-        <%= link_to_add_association "手順を追加", f, :steps %>
-      </div>
-    </div>
-    <%= f.submit "レシピを編集" %>
-  <% end %>
+  </div>
 </div>

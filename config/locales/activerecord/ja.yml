@@ -3,9 +3,29 @@ ja:
     model:
       user: 'ユーザー'
       recipe: 'レシピ'
+      step: '作り方'
     attributes:
       user:
         name: 'ユーザー名'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+      recipe:
+        name: 'レシピ名'
+        survings: '何人前'
+        category: '種類'
+        image: 'レシピ画像'
+      step:
+        direction: '手順'
+        image: '画像(任意)'
+  enums:
+    recipe:
+      category:
+        meat: 'お肉のカレー'
+        fish: 'お魚のカレー'
+        vegetable: 'お野菜のカレー'
+        other: 'その他のカレー'
+    spice:
+      classification:
+        whole: 'ホール'
+        powder: 'パウダー'
