@@ -1,5 +1,11 @@
+<p><%= icon 'far', 'user' %>
+  <%= recipe.user.name %>さんのレシピ
+  <%= link_to user_path(recipe.user), class: 'text-decoration-none link' do %>
+    <br><%= recipe.user.name %>さんの他のレシピを見る
+  <% end %>
+</p>
 <% if current_user.favorite?(recipe) %>
-  <%= render 'unfavorite', { recipe: recipe } %>
+  お気に入り <%= render 'unfavorite', { recipe: recipe } %>
 <% else %>
-  <%= render 'favorite', { recipe: recipe } %>
+  お気に入り <%= render 'favorite', { recipe: recipe } %>
 <% end %>
