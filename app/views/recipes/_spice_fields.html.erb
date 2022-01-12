@@ -1,9 +1,16 @@
 <div class="nested-fields">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :quantity %>
-  <%= f.text_field :quantity %>
-  <%= f.label :classification %>
-  <%= f.select :classification, Spice.classifications.keys %>
-  <%= link_to_remove_association "削除", f %>
+  <div class="row mx-auto">
+    <div class="col-4">
+      <%= f.text_field :name, class: "form-control", placeholder: "スパイス名" %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :quantity, class: "form-control", placeholder: "分量" %>
+    </div>
+    <div class="d-flex align-items-end">
+      <%= f.select :classification, Spice.classifications_i18n.invert %>
+    </div>
+    <div class="col-2 px-0 w-auto text-right">
+      <%= link_to_remove_association "削除", f, class: "btn btn-danger" %>
+    </div>
+  </div>
 </div>

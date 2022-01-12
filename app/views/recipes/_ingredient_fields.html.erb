@@ -1,7 +1,13 @@
 <div class="nested-fields">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :quantity %>
-  <%= f.text_field :quantity %>
-  <%= link_to_remove_association "削除", f %>
+  <div class="row mx-auto">
+    <div class="col-4">
+      <%= f.text_field :name, class: "form-control", placeholder: "材料名" %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :quantity, class: "form-control", placeholder: "分量" %>
+    </div>
+    <div class="offset-3 col-2 px-0 w-auto">
+      <%= link_to_remove_association "削除", f, class: "btn btn-danger" %>
+    </div>
+  </div>
 </div>
