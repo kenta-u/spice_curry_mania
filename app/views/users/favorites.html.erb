@@ -1,12 +1,14 @@
-<div class="container">
-  <div class="recipes">
-    <% @favorite_recipes.each do |recipe| %>
-      <%= link_to(recipe_path(recipe)) do %>
-        <div class="recipe">
-          <%= image_tag recipe.image.url, size: '250x250' %>
-          <%= recipe.name %>
-        </div>
-      <% end %>
-    <% end %>
+<div class="container border-bottom pb-3">
+  <div class="row">
+    <div class="col-md-6 d-flex align-items-center">
+      <h2>お気に入りレシピ一覧</h2>
+    </div>
+  </div>
+</div>
+<div class="container py-5">
+  <div class="col-12">
+    <div class="row">
+      <%= render partial: 'recipes/recipe', collection: @favorite_recipes %>
+    </div>
   </div>
 </div>
