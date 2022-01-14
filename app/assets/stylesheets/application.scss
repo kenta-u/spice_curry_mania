@@ -59,3 +59,16 @@ footer {
  .footer-title {
    font-family: 'Caveat', cursive;
  }
+
+ .term-list {
+   list-style-type: decimal;
+ }
+
+ ol {
+   list-style-position: inside;
+ }
+
+ li {
+   padding-left: 1rem;
+   text-indent: -1rem;
+ }
