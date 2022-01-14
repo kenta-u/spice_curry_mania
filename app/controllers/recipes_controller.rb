@@ -14,9 +14,9 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.build(recipe_params)
     if @recipe.save
       redirect_to root_path
-      flash[:notice] = 'レシピを作成しました'
+      flash[:warning] = t('.success')
     else
-      flash.now[:alert] = 'レシピの作成に失敗しました'
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end
@@ -29,9 +29,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
     if @recipe.update(recipe_params)
       redirect_to root_path
-      flash[:notice] = "レシピを編集しました"
+      flash[:warning] = t('.success')
     else
-      flash.now[:alert] = "レシピの編集に失敗しました"
+      flash.now[:danger] = t('.fail')
       render :edit
     end
   end
