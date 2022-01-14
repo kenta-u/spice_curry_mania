@@ -4,7 +4,7 @@
       <h2 class="text-break"><%= @recipe.name %></h2>
       <%= image_tag @recipe.image.url, class: 'img-fluid' %>
       <br>
-      <% if current_user.own?(@recipe) %>
+      <% if current_user&.own?(@recipe) %>
         <%= render 'crud_menus', recipe: @recipe %>
       <% else %>
         <%= render 'favorite_button', recipe: @recipe %>
@@ -17,10 +17,11 @@
       <% end %>
     </div>
     <div class="col-md-3">
-    <h3>使用するスパイス</h3>
-    <% @recipe.spices.pluck('name', 'quantity').each do |spice, quantity| %>
-      •<%= spice %>  <%= quantity %><br>
-    <% end %>
+      <h3>使用するスパイス</h3>
+      <% @recipe.spices.pluck('name', 'quantity').each do |spice, quantity| %>
+        •<%= spice %>  <%= quantity %><br>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="container container-m">

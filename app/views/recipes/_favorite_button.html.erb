@@ -4,7 +4,7 @@
     <br><%= recipe.user.name %>さんの他のレシピを見る
   <% end %>
 </p>
-<% if current_user.favorite?(recipe) %>
+<% if current_user&.favorite?(recipe) %>
   お気に入り <%= render 'unfavorite', { recipe: recipe } %>
 <% else %>
   お気に入り <%= render 'favorite', { recipe: recipe } %>
