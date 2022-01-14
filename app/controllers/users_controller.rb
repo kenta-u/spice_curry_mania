@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to login_path
-      flash[:notice] = 'ユーザーの作成に成功しました'
+      flash[:warning] = t('.success')
     else
-      flash.now[:alert] = 'ユーザーの作成に失敗しました'
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end
@@ -22,7 +22,9 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     if @user.update(user_params)
       redirect_to root_path
+      flash[:warning] = t('.success')
     else
+      flash.now[:danger] = t('.fail')
       render :edit
     end
   end

@@ -1,0 +1,21 @@
+ja:
+  sessions:
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
+  users:
+    create:
+      success: 'ユーザー登録が完了しました'
+      fail: 'ユーザー登録に失敗しました'
+    update:
+      success: 'プロフィールを編集しました'
+      fail: 'プロフィールの編集に失敗しました'
+  recipes:
+    create:
+      success: 'レシピを作成しました'
+      fail: 'レシピの作成に失敗しました'
+    update:
+      success: 'レシピを編集しました'
+      fail: 'レシピの編集に失敗しました'
