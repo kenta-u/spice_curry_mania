@@ -17,10 +17,11 @@
       <% end %>
     </div>
     <div class="col-md-3">
-    <h3>使用するスパイス</h3>
-    <% @recipe.spices.pluck('name', 'quantity').each do |spice, quantity| %>
-      •<%= spice %>  <%= quantity %><br>
-    <% end %>
+      <h3>使用するスパイス</h3>
+      <% @recipe.spices.pluck('name', 'quantity').each do |spice, quantity| %>
+        •<%= spice %>  <%= quantity %><br>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="container container-m">
