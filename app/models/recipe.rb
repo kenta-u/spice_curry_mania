@@ -11,6 +11,7 @@ class Recipe < ApplicationRecord
 
   validates :name, presence: true
   validates :survings, presence: true
+  validates :image, presence: true
 
   enum category: { meat: 0, fish: 1, vegetable: 2, other: 3 }
 
