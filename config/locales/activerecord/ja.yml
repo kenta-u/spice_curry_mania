@@ -18,6 +18,14 @@ ja:
       step:
         direction: '手順'
         image: '画像(任意)'
+      spices:
+        name: 'スパイス名'
+        quantity: 'スパイスの分量'
+      ingredients:
+        name: '材料名'
+        quantity: '材料の分量'
+      steps:
+        direction: '手順'
   enums:
     recipe:
       category:
