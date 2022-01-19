@@ -17,5 +17,6 @@
     <div class="row">
       <%= render partial: 'recipes/recipe', collection: @recipes %>
     </div>
+    <%= paginate @recipes %>
   </div>
 </div>

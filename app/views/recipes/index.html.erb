@@ -12,5 +12,10 @@
         <%= render partial: 'recipes/recipe', collection: @recipes %>
       <% end %>
     </div>
+    <% if @search_recipes %>
+      <%= paginate @search_recipes %>
+    <% else %>
+      <%= paginate @recipes %>
+    <% end %>
   </div>
 </div>

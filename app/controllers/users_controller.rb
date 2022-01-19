@@ -31,11 +31,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @recipes = @user.recipes.order('updated_at DESC')
+    @recipes = @user.recipes.order('updated_at DESC').page(params[:page])
   end
 
   def favorites
-    @favorite_recipes = current_user.favorite_recipes.includes(:user).order(created_at: :desc)
+    @favorite_recipes = current_user.favorite_recipes.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   private

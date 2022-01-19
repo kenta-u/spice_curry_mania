@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all.includes(:user)
+    @recipes = Recipe.all.includes(:user).page(params[:page])
   end
 
   def new
