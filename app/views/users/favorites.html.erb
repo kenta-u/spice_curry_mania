@@ -10,5 +10,6 @@
     <div class="row">
       <%= render partial: 'recipes/recipe', collection: @favorite_recipes %>
     </div>
+    <%= paginate @favorite_recipes %>
   </div>
 </div>

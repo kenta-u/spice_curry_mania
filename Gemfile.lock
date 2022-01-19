@@ -357,6 +357,7 @@ DEPENDENCIES
   high_voltage
   jbuilder (~> 2.7)
   jquery-rails
+  kaminari
   listen (~> 3.3)
   mini_magick
   pg (~> 1.1)
