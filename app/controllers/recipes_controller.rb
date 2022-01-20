@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
 
   def index
-    @recipes = Recipe.all.includes(:user).page(params[:page])
+    @recipes = Recipe.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
