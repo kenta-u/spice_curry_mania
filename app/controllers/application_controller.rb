@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     @search_recipes = @search.result
     @search_recipes = @search_recipes.page(params[:page])
   end
+
+  protected
+
+  def not_authenticated
+    redirect_to login_path
+  end
 end
