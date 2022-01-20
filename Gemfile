@@ -34,6 +34,7 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :development do
@@ -70,3 +71,4 @@ gem 'rails-i18n'
 gem 'enum_help'
 gem 'high_voltage'
 gem 'kaminari'
+gem 'config'

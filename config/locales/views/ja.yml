@@ -19,3 +19,9 @@ ja:
     update:
       success: 'レシピを編集しました'
       fail: 'レシピの編集に失敗しました'
+  password_resets:
+    create:
+      success: 'パスワードリセット手順を送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードの変更に失敗しました'
