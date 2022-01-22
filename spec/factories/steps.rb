@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :step do
-    direction { "MyText" }
-    image { "MyString" }
-    recipe { nil }
+    direction { "test" }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root,'spec/fixtures/sample_step.jpeg')) }
+    recipe
   end
 end
