@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :ingredient do
-    name { "MyString" }
-    quantity { "MyString" }
-    recipe { nil }
+    name { "test" }
+    quantity { "test" }
+    recipe
   end
 end
