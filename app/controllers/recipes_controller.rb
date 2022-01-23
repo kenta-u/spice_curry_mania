@@ -43,6 +43,12 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
   end
 
+  def destroy
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe.destroy
+    redirect_to root_path, warning: t('.success')
+  end
+
   private
 
   def recipe_params
