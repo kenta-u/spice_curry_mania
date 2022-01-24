@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :require_login
   before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :verify_access, only: %i[edit udpate destroy]
   skip_before_action :require_login, only: [:index, :show]
 
   def index
@@ -52,5 +53,9 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :survings, :category, :image, ingredients_attributes: [:id, :name, :quantity, :_destroy], spices_attributes: [:id, :name, :quantity, :classification, :_destory], steps_attributes: [:id, :direction, :image, :_destroy])
+  end
+
+  def verify_access
+    redirect_to root_path, danger: "そのページにはアクセスできません" unless current_user.id == @recipe.user_id
   end
 end
