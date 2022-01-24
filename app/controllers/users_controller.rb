@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_login
   before_action :set_user, only: %i[edit update show]
+  before_action :verify_access, only: %i[edit update]
   skip_before_action :require_login, only: [:new, :create, :show]
 
   def new
@@ -46,5 +47,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
+  end
+
+  def verify_access
+    redirect_to root_path, danger: "そのページにはログインできません" unless @current_user == @user
   end
 end
