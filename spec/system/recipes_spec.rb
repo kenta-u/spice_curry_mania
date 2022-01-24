@@ -163,5 +163,29 @@ RSpec.describe "Recipes", type: :system do
         expect(current_path).to eq root_path
       end
     end
+
+    describe 'レシピ詳細ページ' do
+      context '他ユーザーのレシピ詳細ページにアクセスした場合' do
+        it 'お気に入りが表示される' do
+          other_user = create(:user)
+          other_user_recipe = create(:recipe, user: other_user)
+
+          visit recipe_path(other_user_recipe)
+          expect(page).to have_content "お気に入り"
+          expect(current_path).to eq recipe_path(other_user_recipe)
+        end
+      end
+
+      context '自分のレシピ詳細ページにアクセスした場合' do
+        it '編集と削除のリンクが表示される' do
+          my_recipe = create(:recipe, user: user)
+          
+          visit recipe_path(my_recipe)
+          expect(page).to have_link "このレシピを編集する"
+          expect(page).to have_link "このレシピを削除する"
+          expect(current_path).to eq recipe_path(my_recipe)
+        end
+      end
+    end
   end 
 end
