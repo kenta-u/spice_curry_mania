@@ -50,6 +50,6 @@ class UsersController < ApplicationController
   end
 
   def verify_access
-    redirect_to root_path, danger: "そのページにはログインできません" unless @current_user == @user
+    redirect_to root_path, danger: "そのページにはアクセスできません" unless @current_user == @user
   end
 end

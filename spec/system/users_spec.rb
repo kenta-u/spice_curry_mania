@@ -111,7 +111,7 @@ RSpec.describe "Users", type: :system do
         it '編集ページへのアクセスが失敗する' do
           visit edit_user_path(other_user)
           expect(page).to have_content "そのページにはアクセスできません"
-          expect(currnet_path).to eq root_path
+          expect(current_path).to eq root_path
         end
       end
     end
