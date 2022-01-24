@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :require_login
+  before_action :set_recipe, only: %i[show edit update destroy]
   skip_before_action :require_login, only: [:index, :show]
 
   def index
@@ -24,12 +25,9 @@ class RecipesController < ApplicationController
     end
   end
 
-  def edit
-    @recipe = Recipe.find_by(id: params[:id])
-  end
+  def edit; end
 
   def update
-    @recipe = Recipe.find_by(id: params[:id])
     if @recipe.update(recipe_params)
       redirect_to root_path
       flash[:warning] = t('.success')
@@ -39,17 +37,18 @@ class RecipesController < ApplicationController
     end
   end
 
-  def show
-    @recipe = Recipe.find_by(id: params[:id])
-  end
+  def show; end
 
   def destroy
-    @recipe = Recipe.find_by(id: params[:id])
     @recipe.destroy
     redirect_to root_path, warning: t('.success')
   end
 
   private
+
+  def set_recipe
+    @recipe = Recipe.find_by(id: params[:id])
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :survings, :category, :image, ingredients_attributes: [:id, :name, :quantity, :_destroy], spices_attributes: [:id, :name, :quantity, :classification, :_destory], steps_attributes: [:id, :direction, :image, :_destroy])
