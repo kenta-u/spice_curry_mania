@@ -94,7 +94,7 @@ RSpec.describe "Recipes", type: :system do
     end
 
     describe 'レシピ編集' do
-      let!(:recipe) { create(:recipe_with_all) }
+      let!(:recipe) { create(:recipe_with_all, user: user) }
       before { visit edit_recipe_path(recipe) }
 
       context 'フォームの入力値が正常' do

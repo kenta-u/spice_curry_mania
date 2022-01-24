@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_login
+  before_action :set_user, only: %i[edit update show]
+  before_action :verify_access, only: %i[edit update]
   skip_before_action :require_login, only: [:new, :create, :show]
 
   def new
@@ -17,12 +19,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit 
-    @user = User.find_by(id: params[:id])
-  end
+  def edit; end
 
   def update
-    @user = User.find_by(id: params[:id])
     if @user.update(user_params)
       redirect_to root_path
       flash[:warning] = t('.success')
@@ -33,7 +32,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
     @recipes = @user.recipes.order('updated_at DESC').page(params[:page])
   end
 
@@ -43,7 +41,15 @@ class UsersController < ApplicationController
 
   private
 
+  def set_user
+    @user = User.find_by(id: params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
+  end
+
+  def verify_access
+    redirect_to root_path, danger: "そのページにはアクセスできません" unless @current_user == @user
   end
 end
