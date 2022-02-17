@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-  before_action :require_login
   before_action :set_recipe, only: %i[show edit update destroy]
   before_action :verify_access, only: %i[edit udpate destroy]
   skip_before_action :require_login, only: [:index, :show]

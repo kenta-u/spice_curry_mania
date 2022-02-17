@@ -1,9 +1,9 @@
 RailsAdmin.config do |config|
   config.asset_source = :webpacker
   config.authenticate_with do
-    authenticate_or_request_with_http_basic('Site Message') do |username, password|
-      username == ENV['username'] && password == ENV['password']
-    end
+    require_login
+
+    redirect_to main_app.root_path unless current_user.admin?
   end
 
   ### Popular gems integration
@@ -12,10 +12,12 @@ RailsAdmin.config do |config|
   # config.authenticate_with do
   #   warden.authenticate! scope: :user
   # end
-  # config.current_user_method(&:current_user)
+  config.current_user_method(&:current_user)
+
+  config.parent_controller = 'ApplicationController'
 
   ## == CancanCan ==
-  # config.authorize_with :cancancan
+   config.authorize_with :cancancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
