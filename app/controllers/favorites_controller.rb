@@ -1,5 +1,4 @@
 class FavoritesController < ApplicationController
-  before_action :require_login
 
   def create
     @recipe = Recipe.find(params[:recipe_id])

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_recipes, through: :favorites, source: :recipe
 
+  enum role: { general: 0, admin: 1 }
+
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
