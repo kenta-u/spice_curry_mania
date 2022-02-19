@@ -5,15 +5,24 @@
       <%= form_with(model: @recipe, local: true) do |f| %>
         <%= render 'layouts/error_messages', object: f.object %>
         <div class="form-group">
-          <%= f.label :name %>
+          <h4><%= f.label :name %></h4>
           <%= f.text_field :name, class: "form-control" %>
         </div>
-        <%= f.label :survings %>
-        <%= f.number_field :survings, min: 1, max: 20 %>
+        <%= f.label :image %>
+        <%= f.file_field :image, id: :recipe_img %>
+        <div>
+        <% if @recipe.image.present? %>
+          <%= image_tag @recipe.image, id: :img_prev, size: '300x200' %>
+        <% else %>
+          <%= image_tag "sample_recipe.jpeg", id: :img_prev, size: '300x200' %>
+        <% end %>
+        </div>
+        <br>
         <%= f.label :category %>
         <%= f.select :category, Recipe.categories_i18n.invert %>
-        <%= f.label :image %>
-        <%= f.file_field :image %>
+        <br>
+        <%= f.label :survings %>
+        <%= f.number_field :survings, min: 1, max: 20 %>
         <div class="ingredient">
           <h4>材料</h4>
           <%= f.fields_for :ingredients do |form| %>
@@ -48,3 +57,19 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#recipe_img").change(function(){
+        readURL(this);
+    });
+  });
+</script>
