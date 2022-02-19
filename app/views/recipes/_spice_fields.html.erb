@@ -6,10 +6,7 @@
     <div class="col-3">
       <%= f.text_field :quantity, class: "form-control", placeholder: "分量" %>
     </div>
-    <div class="d-flex align-items-end">
-      <%= f.select :classification, Spice.classifications_i18n.invert %>
-    </div>
-    <div class="col-2 px-0 w-auto text-right">
+    <div class="offset-3 col-2 px-0 w-auto">
       <%= link_to_remove_association "削除", f, class: "btn btn-danger" %>
     </div>
   </div>
