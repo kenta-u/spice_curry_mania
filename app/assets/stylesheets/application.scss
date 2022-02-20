@@ -76,3 +76,9 @@ footer {
    padding-left: 1rem;
    text-indent: -1rem;
  }
+
+ @media screen and (max-width: 991px) {
+   .main {
+     padding-bottom: 380px;
+   }
+ }
