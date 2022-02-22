@@ -65,6 +65,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'sorcery'
 gem 'ransack'
 gem 'carrierwave'
+gem 'fog-aws'
 gem 'mini_magick'
 gem 'cocoon'
 gem 'font-awesome-sass'
