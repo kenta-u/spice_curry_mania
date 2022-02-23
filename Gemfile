@@ -79,4 +79,3 @@ gem 'high_voltage'
 gem 'kaminari'
 gem 'config'
 gem 'cancancan'
-gem 'aws-sdk-s3', require: false
